@@ -5,11 +5,12 @@ import re
 import requests
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import os
 
 app = FastAPI()
 
 AIPIPE_API_URL = "https://aipipe.org/openrouter/v1/chat/completions"
-AIPIPE_API_KEY = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6IjI0ZjIwMDAwNDRAZHMuc3R1ZHkuaWl0bS5hYy5pbiJ9.A2KoyIox_ZOIdC99q3bscuAsEzD1ayh8L8xW12TTK3w"
+AIPIPE_API_KEY = os.getenv("AIPIPE_API_KEY")
 MODEL_NAME = "openai/gpt-3.5-turbo-0125"
 
 with open("data/discourse_posts.json", "r", encoding="utf-8") as f:
