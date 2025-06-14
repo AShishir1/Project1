@@ -9,6 +9,11 @@ import os
 
 app = FastAPI()
 
+@app.get("/")
+async def root():
+    return {"status": "ok", "message": "Virtual TA API is live."}
+
+
 AIPIPE_API_URL = "https://aipipe.org/openrouter/v1/chat/completions"
 AIPIPE_API_KEY = os.getenv("AIPIPE_API_KEY")
 MODEL_NAME = "openai/gpt-3.5-turbo-0125"
